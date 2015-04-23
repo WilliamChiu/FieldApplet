@@ -199,7 +199,7 @@ function mouseClicked() {
   visVal = document.getElementById("menuVis");
   visValNum = visVal.options[visVal.selectedIndex].value;
   chargeValSlider.mouseReleased(numCheck);
-  rect(0,0,width-1,height-1);
+  //rect(0,0,width-1,height-1);
   getChargeArrangement();
   
   for (var k = 0; k < sources.length; k++) {
