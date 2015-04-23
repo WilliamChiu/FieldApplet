@@ -196,7 +196,6 @@ function mouseClicked() {
     tests.push(new testCharge(mouseX, mouseY));
     fieldline(mouseX, mouseY);
   }
-    background(255);
   visVal = document.getElementById("menuVis");
   visValNum = visVal.options[visVal.selectedIndex].value;
   chargeValSlider.mouseReleased(numCheck);
