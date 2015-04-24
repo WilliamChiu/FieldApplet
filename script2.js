@@ -33,15 +33,14 @@ function setup() {
   mouseArrow = new Arrow(mouse, 10, 10);
   visualization(0);
   getChargeArrangement();
-
+  visVal = document.getElementById("menuVis");
 }
 
 function draw() {
-  background(255);
-  visVal = document.getElementById("menuVis");
+  //background(255);
   visValNum = visVal.options[visVal.selectedIndex].value;
   chargeValSlider.mouseReleased(numCheck);
-  rect(0,0,width-1,height-1);
+  //rect(0,0,width-1,height-1);
   getChargeArrangement();
   
   for (var k = 0; k < sources.length; k++) {
