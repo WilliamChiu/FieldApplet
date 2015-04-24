@@ -202,11 +202,11 @@ function mouseClicked() {
   if (visVal.options[visVal.selectedIndex].value == 0){
     tests.push(new testCharge(mouseX, mouseY));
   }  
-  if ((visVal.options[visVal.selectedIndex].value == 2) && (mouseX < width) && (mouseX > 0) && (mouseY < height) && (mouseY > 0) ){  
+  else if ((visVal.options[visVal.selectedIndex].value == 2) && (mouseX < width) && (mouseX > 0) && (mouseY < height) && (mouseY > 0) ){  
     //tests.push(new testCharge(mouseX, mouseY));
     fieldline(mouseX, mouseY);
   } 
-  background(255);
+  //background(255);
   visValNum = visVal.options[visVal.selectedIndex].value;
   chargeValSlider.mouseReleased(numCheck);
   //rect(0,0,width-1,height-1);
