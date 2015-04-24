@@ -203,7 +203,7 @@ function mouseClicked() {
     tests.push(new testCharge(mouseX, mouseY));
   }  
   if ((visVal.options[visVal.selectedIndex].value == 2) && (mouseX < width) && (mouseX > 0) && (mouseY < height) && (mouseY > 0) ){  
-    tests.push(new testCharge(mouseX, mouseY));
+    //tests.push(new testCharge(mouseX, mouseY));
     fieldline(mouseX, mouseY);
   } 
   background(255);
