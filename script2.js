@@ -17,8 +17,6 @@ var chargeArr = 0; //charge arrangment
 visVal = document.getElementById("menuVis");
 var visValNum =0;
 
-var saveBackground; //using image to reduce computations
-
 function setup() {
   var cnv = createCanvas(1000, 400);
   cnv.parent("myContainer");
@@ -37,8 +35,7 @@ function setup() {
   getChargeArrangement();
   visVal = document.getElementById("menuVis");
   
-  saveBackground = createImage(width, height);
-  saveBackground.loadPixels();
+  loadPixels();
 }
 
 function draw() {
@@ -49,7 +46,7 @@ function draw() {
   mouseArrow.angle =  mouseTest.Etot.heading();
   mouseArrow.len = mouseTest.Etot.mag();
   mouseArrow.display();
-  saveBackground.updatePixels();
+  updatePixels();
 }
 
 
@@ -234,7 +231,7 @@ function mouseClicked() {
       }
     }
   }
-  saveBackground.loadPixels();
+  loadPixels();
 } 
 
 
