@@ -17,6 +17,8 @@ var chargeArr = 0; //charge arrangment
 visVal = document.getElementById("menuVis");
 var visValNum =0;
 
+var saveBackground = createImage(width, height); //using image to reduce computations
+
 function setup() {
   var cnv = createCanvas(1000, 400);
   cnv.parent("myContainer");
@@ -34,10 +36,19 @@ function setup() {
   visualization(0);
   getChargeArrangement();
   visVal = document.getElementById("menuVis");
+  
+  saveBackground.loadPixels();
 }
 
 function draw() {
-
+  mouse.set(mouseX, mouseY);
+  mouseTest.pos.set(mouseX, mouseY);
+  mouseArrow.location = mouse;
+  mouseTest.updateEtot();
+  mouseArrow.angle =  mouseTest.Etot.heading();
+  mouseArrow.len = mouseTest.Etot.mag();
+  mouseArrow.display();
+  saveBackground.updatePixels();
 }
 
 
@@ -206,14 +217,6 @@ function mouseClicked() {
   for (var k = 0; k < sources.length; k++) {
     sources[k].display();
   }
-  
-  mouse.set(mouseX, mouseY);
-  mouseTest.pos.set(mouseX, mouseY);
-  mouseArrow.location = mouse;
-  mouseTest.updateEtot();
-  mouseArrow.angle =  mouseTest.Etot.heading();
-  mouseArrow.len = mouseTest.Etot.mag();
-  mouseArrow.display();
 
 
   for (var j = tests.length-1; j >=0; j--) {
@@ -230,6 +233,7 @@ function mouseClicked() {
       }
     }
   }
+  saveBackground.loadPixels();
 } 
 
 
