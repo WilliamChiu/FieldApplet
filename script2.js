@@ -17,7 +17,7 @@ var chargeArr = 0; //charge arrangment
 visVal = document.getElementById("menuVis");
 var visValNum =0;
 
-var saveBackground = createImage(width, height); //using image to reduce computations
+var saveBackground; //using image to reduce computations
 
 function setup() {
   var cnv = createCanvas(1000, 400);
@@ -37,6 +37,7 @@ function setup() {
   getChargeArrangement();
   visVal = document.getElementById("menuVis");
   
+  saveBackground = createImage(width, height);
   saveBackground.loadPixels();
 }
 
