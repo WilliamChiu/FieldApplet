@@ -39,6 +39,7 @@ function setup() {
 }
 
 function draw() {
+  updatePixels();
   mouse.set(mouseX, mouseY);
   mouseTest.pos.set(mouseX, mouseY);
   mouseArrow.location = mouse;
@@ -46,7 +47,6 @@ function draw() {
   mouseArrow.angle =  mouseTest.Etot.heading();
   mouseArrow.len = mouseTest.Etot.mag();
   mouseArrow.display();
-  updatePixels();
 }
 
 
