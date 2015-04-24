@@ -37,39 +37,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
-  visValNum = visVal.options[visVal.selectedIndex].value;
-  chargeValSlider.mouseReleased(numCheck);
-  //rect(0,0,width-1,height-1);
-  getChargeArrangement();
-  
-  for (var k = 0; k < sources.length; k++) {
-    sources[k].display();
-  }
-  
-  mouse.set(mouseX, mouseY);
-  mouseTest.pos.set(mouseX, mouseY);
-  mouseArrow.location = mouse;
-  mouseTest.updateEtot();
-  mouseArrow.angle =  mouseTest.Etot.heading();
-  mouseArrow.len = mouseTest.Etot.mag();
-  mouseArrow.display();
 
-
-  for (var j = tests.length-1; j >=0; j--) {
-    tests[j].updateEtot(); 
-    if (visValNum == 2){
-      line(tests[j].pos.x, tests[j].pos.y, tests[j].pos.x + 10*tests[j].Etot.x, tests[j].pos.y + 10*tests[j].Etot.y);
-    }
-
-    else{
-      var mag = tests[j].Etot.mag();
-      var a = new Arrow(tests[j].pos, tests[j].Etot.heading(), mag );
-      if (a.len < 90) {
-        a.display();
-      }
-    }
-  }
 }
 
 
@@ -229,7 +197,39 @@ function mouseClicked() {
     tests.push(new testCharge(mouseX, mouseY));
     fieldline(mouseX, mouseY);
   } 
-  return false;
+  background(255);
+  visValNum = visVal.options[visVal.selectedIndex].value;
+  chargeValSlider.mouseReleased(numCheck);
+  //rect(0,0,width-1,height-1);
+  getChargeArrangement();
+  
+  for (var k = 0; k < sources.length; k++) {
+    sources[k].display();
+  }
+  
+  mouse.set(mouseX, mouseY);
+  mouseTest.pos.set(mouseX, mouseY);
+  mouseArrow.location = mouse;
+  mouseTest.updateEtot();
+  mouseArrow.angle =  mouseTest.Etot.heading();
+  mouseArrow.len = mouseTest.Etot.mag();
+  mouseArrow.display();
+
+
+  for (var j = tests.length-1; j >=0; j--) {
+    tests[j].updateEtot(); 
+    if (visValNum == 2){
+      line(tests[j].pos.x, tests[j].pos.y, tests[j].pos.x + 10*tests[j].Etot.x, tests[j].pos.y + 10*tests[j].Etot.y);
+    }
+
+    else{
+      var mag = tests[j].Etot.mag();
+      var a = new Arrow(tests[j].pos, tests[j].Etot.heading(), mag );
+      if (a.len < 90) {
+        a.display();
+      }
+    }
+  }
 } 
 
 
