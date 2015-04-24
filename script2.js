@@ -37,7 +37,7 @@ function setup() {
 }
 
 function draw() {
-  //background(255);
+  background(255);
   visValNum = visVal.options[visVal.selectedIndex].value;
   chargeValSlider.mouseReleased(numCheck);
   //rect(0,0,width-1,height-1);
