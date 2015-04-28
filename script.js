@@ -13,7 +13,8 @@ function setup() {
 }
 
 function draw() {
-  
+  var currentPixel = mouseY * width + mouseX;
+  line(mouseX, mouseY, mouseX + magnitude[currentPixel] * cos(netAngle[currentPixel]), mouseY - magnitude[currentPixel] * sin(netAngle[currentPixel]));
 }
 
 function calculateField() {
