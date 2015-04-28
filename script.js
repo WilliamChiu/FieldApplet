@@ -15,10 +15,13 @@ function calculateField() {
   for (var temp = 0; temp < width; temp++) {
     for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
       var changeinY = ((charges.get(considerCharges) / width) - (temp / width));
-      var changeinX = (charges.get(considerCharges) % width) - (temp % width);
-      changeinX *= -1; // Flippy
-      //println(changeinX + " " + changeinY);
-      var distance = sqrt(sq(changeinX) + sq(changeinY));
+      var changeinX = (temp % width) - (charges.get(considerCharges) % width);
+      var force = 1 / sqrt(sq(changeinX) + sq(changeinY));
+      var angle = atan(abs(changeinY) / abs(changeinX));
+      if (changeinX > 0) netForcesX[temp] += force * cos(angle);
+      else netForcesX[temp] -= force * cos(angle);
+      if (changeinY > 0) netForcesY[temp] += force * sin(angle);
+      else netForcesY[temp] -= force * sin(angle);
     }
   }
 }
