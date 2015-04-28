@@ -9,6 +9,11 @@ function setup() {
   background(100);
   charges.push(int(height / 2) * width + (width / 2));
   ellipse(charges[0] % width, charges[0] / width, 5, 5);
+  calculateField();
+}
+
+function draw() {
+  
 }
 
 function calculateField() {
@@ -23,6 +28,16 @@ function calculateField() {
       if (changeinY > 0) netForcesY[temp] += force * sin(angle);
       else netForcesY[temp] -= force * sin(angle);
     }
+    var angle = atan(abs(netForcesX[temp]) / abs(netForcesY[temp]));
+    if (netForcesX[temp] < 0) {
+      if (netForcesY[temp] < 0) {
+        angle += PI;
+      }
+      else angle = PI - angle;
+    }
+    else if (netForcesY[temp] < 0) angle = TWO_PI - angle;
+    netAngle[temp] = angle;
+    magnitude[temp] = sqrt(sq(netForcesX[temp]) + sq(netForcesY[temp]));
   }
 }
 
