@@ -4,6 +4,6 @@ function setup() {
 }
 
 window.onload = function() {
-  document.getElementById("defaultcanvas").width = "100%";
-  document.getElementById("defaultcanvas").height = "100%";
+  document.getElementById("defaultcanvas").style.width = "100%";
+  document.getElementById("defaultcanvas").style.height = "100%";
 }
