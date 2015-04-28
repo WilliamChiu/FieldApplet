@@ -7,7 +7,7 @@ var charges = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(100);
-  charges.push((height / 2) * width + (width / 2));
+  charges.push(int(height / 2) * width + (width / 2));
   ellipse(charges[0] % width, charges[0] / width, 5, 5);
 }
 
