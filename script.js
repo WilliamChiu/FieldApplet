@@ -1,4 +1,4 @@
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(windowWidth, windowHeight);
   background(100);
 }
