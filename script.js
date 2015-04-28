@@ -19,8 +19,8 @@ function draw() {
 function calculateField() {
   for (var temp = 0; temp < width; temp++) {
     for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
-      var changeinY = ((charges.get(considerCharges) / width) - (temp / width));
-      var changeinX = (temp % width) - (charges.get(considerCharges) % width);
+      var changeinY = ((charges[considerCharges] / width) - (temp / width));
+      var changeinX = (temp % width) - (charges[considerCharges] % width);
       var force = 1 / sqrt(sq(changeinX) + sq(changeinY));
       var angle = atan(abs(changeinY) / abs(changeinX));
       if (changeinX > 0) netForcesX[temp] += force * cos(angle);
