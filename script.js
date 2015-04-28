@@ -1,7 +1,7 @@
-var netForcesX = new Array(windowWidth * windowHeight);
-var netForcesY = new Array(windowWidth * windowHeight);
-var netAngle = new Array(windowWidth * windowHeight);
-var magnitude = new Array(windowWidth * windowHeight);
+var netForcesX = [];
+var netForcesY = [];
+var netAngle = [];
+var magnitude = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
