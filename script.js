@@ -6,27 +6,25 @@ var charges = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //Set array lengths.
-  //netForcesX.length = width * height;
-  netForcesX[500] = 0;
-  netForcesX[500] += 300;
-  print(netForcesX[500]);
-  netForcesY.length = width * height;
   background(100);
   charges.push(int(height / 2) * width + (width / 2));
   stroke(255);
   ellipse(charges[0] % width, charges[0] / width, 5, 5);
-  //calculateField();
+  calculateField();
 }
 
 function draw() {
   var currentPixel = int(mouseY * width + mouseX);
-  //print(netForcesX[currentPixel]);
+  print(netForcesX[currentPixel]);
   line(mouseX, mouseY, mouseX + magnitude[currentPixel] * cos(netAngle[currentPixel]), mouseY - magnitude[currentPixel] * sin(netAngle[currentPixel]));
 }
 
 function calculateField() {
   for (var temp = 0; temp < width * height; temp++) {
+    netForcesX[temp] = 0;
+    netForcesY[temp] = 0;
+    netAngle[temp] = 0;
+    magnitude[temp] = 0;
     for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
       var changeinY = ((charges[considerCharges] / width) - (temp / width));
       var changeinX = (temp % width) - (charges[considerCharges] % width);
