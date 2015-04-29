@@ -8,6 +8,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   //Set array lengths.
   netForcesX.length = width * height;
+  netForcesX[500] = 0;
   netForcesX[500] += 300;
   print(netForcesX[500]);
   netForcesY.length = width * height;
