@@ -11,12 +11,15 @@ function setup() {
   stroke(255);
   ellipse(charges[0] % width, charges[0] / width, 5, 5);
   calculateField();
+  noSmooth();
 }
 
 function draw() {
+  if (mousePressed()) {
   var currentPixel = int(mouseY * width + mouseX);
   print(netForcesX[currentPixel]);
-  line(mouseX, mouseY, mouseX + magnitude[currentPixel] * cos(netAngle[currentPixel]), mouseY - magnitude[currentPixel] * sin(netAngle[currentPixel]));
+  line(mouseX, mouseY, mouseX + magnitude[currentPixel] * cos(netAngle[currentPixel]), mouseY + magnitude[currentPixel] * sin(netAngle[currentPixel]));
+  }
 }
 
 function calculateField() {
