@@ -38,7 +38,7 @@ function draw() {
   netAngle = angle;
   magnitude = sqrt(sq(netForcesX) + sq(netForcesY));
   print(mouseX);
-  line(mouseX, mouseY, mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)));
+  newline(mouseX, mouseY, mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)));
   }
 }
 
@@ -46,7 +46,7 @@ window.onload = function() {
   document.documentElement.style.overflow = 'hidden';
 }
 
-function line(x0, y0, x1, y1){
+function newline(x0, y0, x1, y1){
    var dx = Math.abs(x1-x0);
    var dy = Math.abs(y1-y0);
    var sx = (x0 < x1) ? 1 : -1;
