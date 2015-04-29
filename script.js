@@ -1,9 +1,3 @@
-var netForcesX = [];
-var netForcesY = [];
-var netAngle = [];
-var magnitude = [];
-var charges = [];
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(100);
@@ -16,32 +10,32 @@ function setup() {
 function draw() {
   if (mouseIsPressed) {
   var temp = int(mouseY * width + mouseX);
-  netForcesX[temp] = 0;
-  netForcesY[temp] = 0;
-  netAngle[temp] = 0;
-  magnitude[temp] = 0;
+  netForcesX = 0;
+  netForcesY = 0;
+  netAngle = 0;
+  magnitude = 0;
   for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
     var changeinY = ((charges[considerCharges] / width) - (temp / width));
     var changeinX = (temp % width) - (charges[considerCharges] % width);
     var force = 1000 / sqrt(sq(changeinX) + sq(changeinY));
     var angle = atan(abs(changeinY) / abs(changeinX));
-    if (changeinX > 0) netForcesX[temp] += force * cos(angle);
-    else netForcesX[temp] -= force * cos(angle);
-    if (changeinY > 0) netForcesY[temp] += force * sin(angle);
-    else netForcesY[temp] -= force * sin(angle);
+    if (changeinX > 0) netForcesX += force * cos(angle);
+    else netForcesX -= force * cos(angle);
+    if (changeinY > 0) netForcesY += force * sin(angle);
+    else netForcesY -= force * sin(angle);
   }
-  var angle = atan(abs(netForcesY[temp]) / abs(netForcesX[temp]));
-  if (netForcesX[temp] < 0) {
-    if (netForcesY[temp] < 0) {
+  var angle = atan(abs(netForcesY) / abs(netForcesX));
+  if (netForcesX < 0) {
+    if (netForcesY < 0) {
       angle += PI;
     }
     else angle = PI - angle;
   }
-  else if (netForcesY[temp] < 0) angle = TWO_PI - angle;
-  netAngle[temp] = angle;
-  magnitude[temp] = sqrt(sq(netForcesX[temp]) + sq(netForcesY[temp]));
-  print(netForcesX[temp]);
-  line(mouseX, mouseY, mouseX + magnitude[temp] * cos(netAngle[temp]), mouseY - magnitude[temp] * sin(netAngle[temp]));
+  else if (netForcesY < 0) angle = TWO_PI - angle;
+  netAngle = angle;
+  magnitude = sqrt(sq(netForcesX) + sq(netForcesY));
+  print(netForcesX);
+  line(mouseX, mouseY, mouseX + magnitude * cos(netAngle), mouseY - magnitude * sin(netAngle));
   }
 }
 
