@@ -41,7 +41,7 @@ function draw() {
   netAngle[temp] = angle;
   magnitude[temp] = sqrt(sq(netForcesX[temp]) + sq(netForcesY[temp]));
   print(netForcesX[temp]);
-  line(mouseX, mouseY, mouseX + magnitude[temp] * cos(netAngle[temp), mouseY - magnitude[temp] * sin(netAngle[temp]));
+  line(mouseX, mouseY, mouseX + magnitude[temp] * cos(netAngle[temp]), mouseY - magnitude[temp] * sin(netAngle[temp]));
   }
 }
 
