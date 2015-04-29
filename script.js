@@ -38,7 +38,7 @@ function calculateField() {
       if (changeinY > 0) netForcesY[temp] += force * sin(angle);
       else netForcesY[temp] -= force * sin(angle);
     }
-    var angle = atan(abs(netForcesX[temp]) / abs(netForcesY[temp]));
+    var angle = atan(abs(netForcesY[temp]) / abs(netForcesX[temp]));
     if (netForcesX[temp] < 0) {
       if (netForcesY[temp] < 0) {
         angle += PI;
