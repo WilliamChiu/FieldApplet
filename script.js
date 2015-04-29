@@ -28,7 +28,7 @@ function calculateField() {
     for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
       var changeinY = ((charges[considerCharges] / width) - (temp / width));
       var changeinX = (temp % width) - (charges[considerCharges] % width);
-      var force = 1 / sqrt(sq(changeinX) + sq(changeinY));
+      var force = 1000 / sqrt(sq(changeinX) + sq(changeinY));
       var angle = atan(abs(changeinY) / abs(changeinX));
       if (changeinX > 0) netForcesX[temp] += force * cos(angle);
       else netForcesX[temp] -= force * cos(angle);
