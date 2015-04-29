@@ -37,7 +37,7 @@ function draw() {
   else if (netForcesY < 0) angle = TWO_PI - angle;
   netAngle = angle;
   magnitude = sqrt(sq(netForcesX) + sq(netForcesY));
-  print(netForcesX);
+  print(mouseX);
   line(mouseX, mouseY, mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)));
   }
 }
