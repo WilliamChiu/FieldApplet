@@ -6,7 +6,8 @@ function setup() {
   charges.push(int(height / 2) * width + (width / 2));
   stroke(255);
   ellipse(charges[0] % width, charges[0] / width, 5, 5);
-  function(){return this.drawingContext.mozImageSmoothingEnabled=!1,this.drawingContext.ImageSmoothingEnabled=!1,this}
+  this.drawingContext.mozImageSmoothingEnabled=!1;
+  this.drawingContext.ImageSmoothingEnabled=!1;
 }
 
 function draw() {
