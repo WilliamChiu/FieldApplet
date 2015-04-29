@@ -44,6 +44,20 @@ function draw() {
   }
 }
 
+function keyPressed() {
+  if (key === ' ') {
+    placeCharge();
+  }
+}
+
+function placeCharge() {
+  var charges.push(mouseY*width+mouseX);
+  background(100);
+  for (var considerCharges = 0; considerCharges < charges.length; considerCharges++){
+    ellipse(charges[considerCharges] % width, charges[considerCharges] / width, 5, 5);
+  }
+}
+
 window.onload = function() {
   document.documentElement.style.overflow = 'hidden';
 }
