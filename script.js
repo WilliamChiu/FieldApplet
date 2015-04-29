@@ -20,7 +20,7 @@ function draw() {
 }
 
 function calculateField() {
-  for (var temp = 0; temp < width; temp++) {
+  for (var temp = 0; temp < width * height; temp++) {
     for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
       var changeinY = ((charges[considerCharges] / width) - (temp / width));
       var changeinX = (temp % width) - (charges[considerCharges] % width);
