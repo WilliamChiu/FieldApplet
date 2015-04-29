@@ -54,7 +54,7 @@ function newline(x0, y0, x1, y1){
    var err = dx-dy;
 
    while(true){
-     setPixel(x0,y0);  // Do what you need to for this
+     point(x0,y0);  // Do what you need to for this
 
      if ((x0==x1) && (y0==y1)) break;
      var e2 = 2*err;
