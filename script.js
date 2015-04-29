@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-  if (mousePressed()) {
+  if (mouseIsPressed) {
   var currentPixel = int(mouseY * width + mouseX);
   print(netForcesX[currentPixel]);
   line(mouseX, mouseY, mouseX + magnitude[currentPixel] * cos(netAngle[currentPixel]), mouseY + magnitude[currentPixel] * sin(netAngle[currentPixel]));
