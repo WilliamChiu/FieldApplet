@@ -51,7 +51,6 @@ function calculateField() {
   }
 }
 
-//window.onload = function() {
-//  document.getElementById("defaultCanvas").style.width = "100%";
-//  document.getElementById("defaultCanvas").style.height = "100%";
-//}
+window.onload = function() {
+  document.documentElement.style.overflow = 'hidden';
+}
