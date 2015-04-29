@@ -10,44 +10,38 @@ function setup() {
   charges.push(int(height / 2) * width + (width / 2));
   stroke(255);
   ellipse(charges[0] % width, charges[0] / width, 5, 5);
-  calculateField();
   noSmooth();
 }
 
 function draw() {
   if (mouseIsPressed) {
-  var currentPixel = int(mouseY * width + mouseX);
-  print(netForcesX[currentPixel]);
-  line(mouseX, mouseY, mouseX + magnitude[currentPixel] * cos(netAngle[currentPixel]), mouseY - magnitude[currentPixel] * sin(netAngle[currentPixel]));
+  var temp = int(mouseY * width + mouseX);
+  netForcesX[temp] = 0;
+  netForcesY[temp] = 0;
+  netAngle[temp] = 0;
+  magnitude[temp] = 0;
+  for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
+    var changeinY = ((charges[considerCharges] / width) - (temp / width));
+    var changeinX = (temp % width) - (charges[considerCharges] % width);
+    var force = 1000 / sqrt(sq(changeinX) + sq(changeinY));
+    var angle = atan(abs(changeinY) / abs(changeinX));
+    if (changeinX > 0) netForcesX[temp] += force * cos(angle);
+    else netForcesX[temp] -= force * cos(angle);
+    if (changeinY > 0) netForcesY[temp] += force * sin(angle);
+    else netForcesY[temp] -= force * sin(angle);
   }
-}
-
-function calculateField() {
-  for (var temp = 0; temp < width * height; temp++) {
-    netForcesX[temp] = 0;
-    netForcesY[temp] = 0;
-    netAngle[temp] = 0;
-    magnitude[temp] = 0;
-    for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
-      var changeinY = ((charges[considerCharges] / width) - (temp / width));
-      var changeinX = (temp % width) - (charges[considerCharges] % width);
-      var force = 1000 / sqrt(sq(changeinX) + sq(changeinY));
-      var angle = atan(abs(changeinY) / abs(changeinX));
-      if (changeinX > 0) netForcesX[temp] += force * cos(angle);
-      else netForcesX[temp] -= force * cos(angle);
-      if (changeinY > 0) netForcesY[temp] += force * sin(angle);
-      else netForcesY[temp] -= force * sin(angle);
+  var angle = atan(abs(netForcesY[temp]) / abs(netForcesX[temp]));
+  if (netForcesX[temp] < 0) {
+    if (netForcesY[temp] < 0) {
+      angle += PI;
     }
-    var angle = atan(abs(netForcesY[temp]) / abs(netForcesX[temp]));
-    if (netForcesX[temp] < 0) {
-      if (netForcesY[temp] < 0) {
-        angle += PI;
-      }
-      else angle = PI - angle;
-    }
-    else if (netForcesY[temp] < 0) angle = TWO_PI - angle;
-    netAngle[temp] = angle;
-    magnitude[temp] = sqrt(sq(netForcesX[temp]) + sq(netForcesY[temp]));
+    else angle = PI - angle;
+  }
+  else if (netForcesY[temp] < 0) angle = TWO_PI - angle;
+  netAngle[temp] = angle;
+  magnitude[temp] = sqrt(sq(netForcesX[temp]) + sq(netForcesY[temp]));
+  print(netForcesX[temp]);
+  line(mouseX, mouseY, mouseX + magnitude[temp] * cos(netAngle[temp), mouseY - magnitude[temp] * sin(netAngle[temp]));
   }
 }
 
