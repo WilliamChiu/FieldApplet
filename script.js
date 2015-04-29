@@ -6,6 +6,9 @@ var charges = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  //Set array lengths.
+  netForcesX.length = width * height;
+  netForcesY.length = width * height;
   background(100);
   charges.push(int(height / 2) * width + (width / 2));
   stroke(255);
