@@ -15,6 +15,7 @@ function setup() {
 
 function draw() {
   var currentPixel = int(mouseY * width + mouseX);
+  print(currentPixel);
   line(mouseX, mouseY, mouseX + magnitude[currentPixel] * cos(netAngle[currentPixel]), mouseY - magnitude[currentPixel] * sin(netAngle[currentPixel]));
 }
 
