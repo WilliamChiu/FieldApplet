@@ -39,8 +39,8 @@ function draw() {
   magnitude = sqrt(sq(netForcesX) + sq(netForcesY));
   print(mouseX);
   newline(mouseX, mouseY, mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)));
-  newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle + PI / 3) * 4 / 5), mouseY - int(magnitude * sin(netAngle + PI / 3) * 4 / 5));
-  newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle - PI / 3) * 4 / 5), mouseY - int(magnitude * sin(netAngle - PI / 3) * 4 / 5));
+  newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle + PI / 3) * 1 / 5), mouseY - int(magnitude * sin(netAngle + PI / 3) * 1 / 5));
+  newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle - PI / 3) * 1 / 5), mouseY - int(magnitude * sin(netAngle - PI / 3) * 1 / 5));
   }
 }
 
