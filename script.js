@@ -37,7 +37,7 @@ function draw() {
   netAngle = angle;
   magnitude = sqrt(sq(netForcesX) + sq(netForcesY));
   //print(mouseX);
-  stroke(magnitude)
+  stroke(255, magnitude)
   newline(mouseX, mouseY, mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)));
   newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle + PI / 64) * 9 / 10), mouseY - int(magnitude * sin(netAngle + PI / 64) * 9 / 10));
   newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle - PI / 64) * 9 / 10), mouseY - int(magnitude * sin(netAngle - PI / 64) * 9 / 10));
@@ -54,7 +54,7 @@ function placeCharge() {
   charges.push(mouseY*width+mouseX);
   background(100);
   for (var considerCharges = 0; considerCharges < charges.length; considerCharges++){
-    ellipse(charges[considerCharges] % width, charges[considerCharges] / width, 5, 5);
+    newellipse(charges[considerCharges] % width, charges[considerCharges] / width, 5, 5);
   }
 }
 
@@ -82,7 +82,7 @@ function newline(x0, y0, x1, y1){
 function newellipse(x0, y0, x1, y1) {
   for (var tempW = x0 - (x1 / 2); tempW < x0 + (x1 / 2); tempW++) {
     for (var tempH = y0 - (y1 / 2); tempH < y0 + (y1 / 2); tempH++) {
-      if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) <= 1.0) point(tempW, tempH);
+      if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) < 1.0) point(tempW, tempH);
     }
   }
 }
