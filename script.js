@@ -17,7 +17,7 @@ function draw() {
         netAngle = 0;
         magnitude = 0;
         for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
-            var changeinY = (int(charges[considerCharges] / width) - (temp / width));
+            var changeinY = ((charges[considerCharges] / width) - (temp / width));
             var changeinX = (temp % width) - (charges[considerCharges] % width);
             var force = 1000 / sqrt(sq(changeinX) + sq(changeinY));
             var angle = atan(abs(changeinY) / abs(changeinX));
