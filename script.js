@@ -48,7 +48,7 @@ function keyPressed() {
     if (key === ' ') {
         placeCharge();
     }
-    else if (value === '67') {
+    else if (keyCode === '67') {
         background(100);
         for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
             newellipse(charges[considerCharges] % width, charges[considerCharges] / width, 8, 8);
