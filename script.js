@@ -48,7 +48,7 @@ function keyPressed() {
     if (key === ' ') {
         placeCharge();
     }
-    else if (key == 'c') {
+    else if (key === 'c') {
         charges.push(mouseY * width + mouseX);
         background(100);
     }
