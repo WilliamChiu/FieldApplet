@@ -6,7 +6,7 @@ function setup() {
   charges.push(int(height / 2) * width + (width / 2));
   stroke(255);
   strokeWeight(0.5);
-  newellipse(charges[0] % width, charges[0] / width, 6, 6);
+  newellipse(charges[0] % width, charges[0] / width, 8, 8);
 }
 
 function draw() {
