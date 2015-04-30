@@ -37,6 +37,7 @@ function draw() {
   netAngle = angle;
   magnitude = sqrt(sq(netForcesX) + sq(netForcesY));
   //print(mouseX);
+  stroke(magnitude)
   newline(mouseX, mouseY, mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)));
   newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle + PI / 64) * 9 / 10), mouseY - int(magnitude * sin(netAngle + PI / 64) * 9 / 10));
   newline(mouseX + int(magnitude * cos(netAngle)), mouseY - int(magnitude * sin(netAngle)), mouseX + int(magnitude * cos(netAngle - PI / 64) * 9 / 10), mouseY - int(magnitude * sin(netAngle - PI / 64) * 9 / 10));
@@ -81,8 +82,7 @@ function newline(x0, y0, x1, y1){
 function newellipse(x0, y0, x1, y1) {
   for (var tempW = x0 - (x1 / 2); tempW < x0 + (x1 / 2); tempW++) {
     for (var tempH = y0 - (y1 / 2); tempH < y0 + (y1 / 2); tempH++) {
-      print(sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) <= 1);
-      if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) <= 1) point(tempW, tempH);
+      if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) <= 1.0) point(tempW, tempH);
     }
   }
 }
