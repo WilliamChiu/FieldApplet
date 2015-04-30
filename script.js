@@ -60,6 +60,7 @@ function placeCharge() {
 
 window.onload = function() {
   document.documentElement.style.overflow = 'hidden';
+  document.getElementById("defaultCanvas").style.imageRendering = "pixelated";
 }
 
 function newline(x0, y0, x1, y1){
@@ -85,7 +86,7 @@ function newellipse(x0, y0, x1, y1) {
       if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) < 1.0) {
         point(tempW, tempH);
       }
-      else print("test");
+      else print(tempW + " " + tempH);
     }
   }
 }
