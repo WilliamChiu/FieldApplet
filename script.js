@@ -48,6 +48,10 @@ function keyPressed() {
     if (key === ' ') {
         placeCharge();
     }
+    else if (key == 'c') {
+        charges.push(mouseY * width + mouseX);
+        background(100);
+    }
 }
 
 function placeCharge() {
