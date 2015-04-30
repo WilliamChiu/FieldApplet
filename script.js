@@ -6,7 +6,6 @@ function setup() {
   charges.push(int(height / 2) * width + (width / 2));
   stroke(255);
   strokeWeight(0.5);
-  noSmooth();
   ellipse(charges[0] % width, charges[0] / width, 5, 5);
 }
 
@@ -70,11 +69,19 @@ function newline(x0, y0, x1, y1){
    var err = dx-dy;
 
    while(true){
-     point(x0,y0);  // Do what you need to for this
+     set(x0, y0, color(255));  // Do what you need to for this
 
      if ((x0==x1) && (y0==y1)) break;
      var e2 = 2*err;
      if (e2 >-dy){ err -= dy; x0  += sx; }
      if (e2 < dx){ err += dx; y0  += sy; }
    }
+}
+
+function newellipse(x0, y0, x1, y1) {
+  for (var tempW = x0 - (x1 / 2); tempW < x0 + (x1 / 2); tempW++) {
+    for (var tempH = y0 - (y1 / 2); tempH < y0 + (y1 / 2); tempH++) {
+      if (sq((tempW - x0) / x1) + sq((tempH - y0) / y1)) set(x0, x1, color(255));
+    }
+  }
 }
