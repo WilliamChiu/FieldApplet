@@ -48,9 +48,11 @@ function keyPressed() {
     if (key === ' ') {
         placeCharge();
     }
-    else if (key === 'c') {
-        charges.push(mouseY * width + mouseX);
+    else if (value === '67') {
         background(100);
+        for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
+            newellipse(charges[considerCharges] % width, charges[considerCharges] / width, 8, 8);
+        }
     }
 }
 
