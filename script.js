@@ -82,7 +82,7 @@ function newellipse(x0, y0, x1, y1) {
   for (var tempW = x0 - (x1 / 2); tempW < x0 + (x1 / 2); tempW++) {
     for (var tempH = y0 - (y1 / 2); tempH < y0 + (y1 / 2); tempH++) {
       print(sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) <= 1);
-      if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) <= 1) point(x0, x1);
+      if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) <= 1) point(tempW, temp);
     }
   }
 }
