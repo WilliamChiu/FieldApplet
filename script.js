@@ -17,7 +17,7 @@ function draw() {
         netAngle = 0;
         magnitude = 0;
         for (var considerCharges = 0; considerCharges < charges.length; considerCharges++) {
-            var changeinY = ((charges[considerCharges] / width) - (temp / width));
+            var changeinY = (int(charges[considerCharges] / width) - (temp / width));
             var changeinX = (temp % width) - (charges[considerCharges] % width);
             var force = 1000 / sqrt(sq(changeinX) + sq(changeinY));
             var angle = atan(abs(changeinY) / abs(changeinX));
@@ -91,7 +91,7 @@ function newellipse(x0, y0, x1, y1) {
         for (var tempH = y0 - (y1 / 2); tempH <= y0 + (y1 / 2); tempH++) {
             if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) < 1.0) {
                 point(tempW, tempH);
-            } else print(sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))));
+            }
         }
     }
 }
