@@ -86,7 +86,7 @@ function newellipse(x0, y0, x1, y1) {
       if (sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))) < 1.0) {
         point(tempW, tempH);
       }
-      else print(tempW + " " + tempH);
+      print(sqrt(sq((tempW - x0) / (x1 / 2)) + sq((tempH - y0) / (y1 / 2))));
     }
   }
 }
